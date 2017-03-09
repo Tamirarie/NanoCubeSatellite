@@ -3,7 +3,7 @@
 #include <TinyGPS++.h> // NMEA parsing: http://arduiniana.org
 #include <PString.h> // String buffer formatting: http://arduiniana.org
 #include <Adafruit_VC0706.h> ///Camera
-#include <SPI.h>
+#include <SPI.h> 
 #include "SdFat.h"
 #include <Wire.h>
 #include <Adafruit_Sensor.h> //Sensors for 9DOF
@@ -72,12 +72,13 @@ void setup() {
    isbd.setPowerProfile(1);  
   // initialize the digital pin as an output.
   pinMode(led, OUTPUT);
+  Serial.print("Succes!");
 }
 
 void loop(){
   // put your main code here, to run repeatedly:
-  //GetEvent();
-  SnapShot();
+  GetEvent();
+  //SnapShot();
   //IridiumBegin();
-  //Getphotocell();
+  Getphotocell();
 }

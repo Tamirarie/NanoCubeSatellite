@@ -1,5 +1,5 @@
 
-void Getphotocell() {
+void Getphotocell(){
   photocellReading = analogRead(photocellPin);  
  
   Serial.print("Analog reading = ");
