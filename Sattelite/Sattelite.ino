@@ -77,7 +77,7 @@ void setup() {
 
 void loop(){
   // put your main code here, to run repeatedly:
-  GetEvent();
+  //GetEvent();
   //SnapShot();
   //IridiumBegin();
   Getphotocell();
