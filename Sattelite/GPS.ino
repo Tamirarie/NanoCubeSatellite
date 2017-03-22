@@ -1,6 +1,6 @@
-
-void IridiumBegin()
-{
+//GPS function for sat
+void getGPSData() {
+  
   bool fixFound = false;
   unsigned long loopStartTime = millis();
 
@@ -16,14 +16,9 @@ void IridiumBegin()
       fixFound = tinygps.location.isValid() && tinygps.date.isValid() &&
         tinygps.time.isValid() && tinygps.altitude.isValid();
     }
+    Serial.println(fixFound ? F("A GPS fix was found!") : F("No GPS fix was found."));
 
-  Serial.println(fixFound ? F("A GPS fix was found!") : F("No GPS fix was found."));
-
-  // Step 3: Start talking to the RockBLOCK and power it up
-  Serial.println("Beginning to talk to the RockBLOCK...");
-  //ssIridium.listen();
-  if (isbd.begin() == ISBD_SUCCESS)
-  {
+//declare the buffer
     char outBuffer[60]; // Always try to keep message short
     if (fixFound)
     {
@@ -49,17 +44,7 @@ void IridiumBegin()
       sprintf(outBuffer, "No GPS fix found!");
     }
 
-    Serial.print("Transmitting message: ");
-    Serial.println(outBuffer);
-    isbd.sendSBDText(outBuffer);
-  }
+     Serial.println(outBuffer);
 
-  // Sleep
-  /*Serial.println("Going to sleep mode for about an hour...");
-  isbd.sleep();
-  ssIridium.end();
-  ssGPS.end();
-  int elapsedSeconds = (int)((millis() - loopStartTime) / 1000);
-  while (elapsedSeconds++ < BEACON_INTERVAL)
-    delay(1000);*/
 }
+

@@ -98,15 +98,18 @@ void GetEvent()
   Serial.print("\tZ: ");
   Serial.print(event.orientation.z, 4);
 
-  /* Optional: Display calibration status */
-  displayCalStatus();
-
-  /* Optional: Display sensor status (debug only) */
-  //displaySensorStatus();
-
   /* New line for the next sample */
   Serial.println("");
 
   /* Wait the specified delay before requesting nex data */
-  delay(BNO055_SAMPLERATE_DELAY_MS);
+  //delay(BNO055_SAMPLERATE_DELAY_MS);
+}
+
+void DisplayInfo(){
+  /* Display some basic information on this sensor */
+ displaySensorDetails();
+  /* Optional: Display calibration status */
+  displayCalStatus();
+   //Optional: Display current status 
+  displaySensorStatus();
 }

@@ -1,4 +1,3 @@
-
 void Getphotocell(){
   photocellReading = analogRead(photocellPin);  
  
@@ -17,5 +16,4 @@ void Getphotocell(){
   } else {
     Serial.println(" - Very bright");
   }
-  delay(5000);
 }
